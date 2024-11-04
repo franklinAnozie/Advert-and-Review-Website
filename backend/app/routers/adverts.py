@@ -9,7 +9,7 @@ from datetime import datetime, timedelta
 import os
 from uuid import uuid4
 
-UPLOAD_DIR = "/mnt/data/uploads"
+UPLOAD_DIR = "./uploads"
 
 router = APIRouter()
 
