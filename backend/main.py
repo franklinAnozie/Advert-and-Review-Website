@@ -25,10 +25,8 @@ app.add_middleware(TrailingSlashMiddleware)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "https://advertorial-hub-frontend.vercel.app/",
-        "https://advertorial-hub-frontend.vercel.app",
-        "https://www.advertorial-hub-frontend.vercel.app/",
-        "https://www.advertorial-hub-frontend.vercel.app",
+        "https://advert-and-review-website.vercel.app/",
+        "https://www.advert-and-review-website.vercel.app/",
         ],
     allow_credentials=True,
     allow_methods=[
