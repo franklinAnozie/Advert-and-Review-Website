@@ -13,7 +13,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 
 router = APIRouter()
 
-@router.post("/token", response_model=schemas.Token)
+@router.post("/admin-token", response_model=schemas.Token)
 async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(database.get_db)):
     user = auth.authenticate_admin_user(db, form_data.username, form_data.password)
     if not user:

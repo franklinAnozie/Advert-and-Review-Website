@@ -4,7 +4,7 @@ import axios from 'axios';
 import qs from 'qs';
 import styles from '../style/LoginPage.module.css';
 
-const LoginPage = () => {
+const AdminLoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -12,7 +12,7 @@ const LoginPage = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${process.env.REACT_APP_ROOT_URL}/token`, qs.stringify({
+      const response = await axios.post(`${process.env.REACT_APP_ROOT_URL}/admin-token`, qs.stringify({
       username: email,
       password,
     }), {
@@ -22,7 +22,7 @@ const LoginPage = () => {
       }
     );
     localStorage.setItem('accessToken', response.data.access_token);
-    navigate('/user');
+    navigate('/admin');
     } catch (error) {
       console.error('Login error:', error);
     }
@@ -31,7 +31,7 @@ const LoginPage = () => {
   return (
     <div className={styles.loginContainer}>
       <form className={styles.loginForm} onSubmit={handleLogin}>
-        <h1>User Login</h1>
+        <h1>Admin Login</h1>
         <div className={styles.formGroup}>
           <label htmlFor="email">Email:</label>
           <input
@@ -58,4 +58,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default AdminLoginPage;

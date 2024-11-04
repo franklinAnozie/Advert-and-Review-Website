@@ -17,14 +17,15 @@ const App = () => {
           {/* Public routes */}
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/admin-login" element={<AdminLoginPage />} />
 
           {/* Admin routes */}
           <Route
             path="/admin"
-            element={isAuthenticated() ? <AdminDashboard /> : <Navigate to="/login" />}
+            element={isAuthenticated() ? <AdminDashboard /> : <Navigate to="/admin-login" />}
           />
 
-          {/* Admin routes */}
+          {/* User routes */}
           <Route
             path="/user"
             element={isAuthenticated() ? <UserDashboard /> : <Navigate to="/login" />}
