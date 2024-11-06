@@ -32,17 +32,16 @@ const AdminDashboard = () => {
       });
       setReviews(reviewsResponse.data);
     } catch (error) {
-      console.error('Error fetching data:', error);
       if (error.response && error.response.status === 401) {
         localStorage.removeItem('accessToken');
-        navigate('/login');
+        navigate('/admin-login');
       }
     }
   };
 
   const handleLogout = () => {
     localStorage.removeItem('accessToken');
-    navigate('/login');
+    navigate('/admin-login');
   };
 
   const showMessage = (msg) => {

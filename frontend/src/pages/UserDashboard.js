@@ -3,12 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Header from '../components/UserPanelHeader';
 import CreateAdForm from '../components/UserPanelCreateAdForm';
-import AdList from '../components/AdList';
-import ReviewList from '../components/AdminPanelReview';
+import AdList from '../components/UserAdList';
+import ReviewList from '../components/UserPanelReview';
 import Modal from '../components/AdminPanelModal';
 import '../style/Admin.css'
 
-const AdminDashboard = () => {
+const UserDashboard = () => {
   const [ads, setAds] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [message, setMessage] = useState('');
@@ -31,7 +31,6 @@ const AdminDashboard = () => {
       });
       setReviews(reviewsResponse.data);
     } catch (error) {
-      console.error('Error fetching data:', error);
       if (error.response && error.response.status === 401) {
         localStorage.removeItem('accessToken');
         navigate('/login');
@@ -60,4 +59,4 @@ const AdminDashboard = () => {
   );
 };
 
-export default AdminDashboard;
+export default UserDashboard;
